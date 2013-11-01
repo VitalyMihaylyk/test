@@ -1,0 +1,130 @@
+<?php
+
+require_once (_DIR_.'/../PHPUnit/Autoload.php');
+require_once 'app.php';
+
+class testMath extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @dataProvider providerSum
+     */
+
+    public function testSum($a,$b,$c)
+    {
+        $result = new Math();
+        $this->assertEquals($c,$result->sum($a,$b));
+    }
+
+    public function providerSum ()
+    {
+        return array(
+            array(0,2,2),
+            array(22,-33,-11),
+            array(4,0,4),
+            array(-4,2,-2),
+            array(11.2,2.5,13.7)
+        );
+    }
+
+
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @dataProvider providerSub
+     */
+    public function testSub($a,$b,$c)
+    {
+        $result = new Math();
+        $this->assertEquals($c,$result->sub($a,$b));
+    }
+
+    public function providerSub ()
+    {
+        return array(
+            array(2,2,0),
+            array(22,3,19),
+            array(4,2,2),
+            array(4,2,2)
+        );
+    }
+
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @dataProvider providerMult
+     */
+
+    public function testMult($a,$b,$c)
+    {
+        $result = new Math();
+        $this->assertEquals($c,$result->mult($a,$b));
+    }
+
+    public function providerMult ()
+    {
+        return array(
+            array(2,0,0),
+            array(22,3,66),
+            array(4,-2,-8),
+            array(0,-2,0),
+            array(0.3,-2,-0.6)
+
+        );
+    }
+
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @dataProvider  providerDiv
+     */
+
+    public function testDiv($a,$b,$c)
+    {
+        $result = new Math();
+        $this->assertEquals($c,$result->div($a,$b));
+    }
+
+    public function providerDiv ()
+    {
+        return array(
+            array(2,0,0),
+            array(22,3,7.33333333333),
+            array(4,-2,-2),
+            array(0,-2,0),
+            array(0.3,-2,-0.15)
+
+        );
+    }
+
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @dataProvider providerPow
+     */
+
+    public function testPow($a,$b,$c)
+    {
+        $result = new Math();
+        $this->assertEquals($c,$result->pow($a,$b));
+    }
+
+    public function providerPow ()
+    {
+        return array(
+            array(0,2,0),
+            array(11,-0,1),
+            array(4,2.5,32),
+            array(-4,2,16),
+            array(11.2,3, 1404.928 )
+        );
+    }
+
+
+}
